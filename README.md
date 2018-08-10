@@ -1,4 +1,8 @@
 # VR
 
-## Porject
-   - Assets
+## Directory
++-- Assets
+|   +-- Sccripts
+    |   +-- camera
+    |   +-- metastore
+    |   +-- trigger
