@@ -11,6 +11,8 @@
 │       ├── control
 │       │   └── player
 │       │       └── playerControl.cs
+│       ├── info
+│       │   └── info.cs
 │       ├── metastore
 │       └── trigger
 │           └── tmp
