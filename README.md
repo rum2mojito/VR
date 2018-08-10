@@ -1,6 +1,6 @@
 # VR
 
-## Directory
+## Tree
 ```
 +-- Assets
 |   +-- Sccripts
