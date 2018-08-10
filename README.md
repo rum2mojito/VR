@@ -2,9 +2,17 @@
 
 ## Tree
 ```
-+-- Assets
-|   +-- Sccripts
-    |   +-- camera
-    |   +-- metastore
-    |   +-- trigger
+.
+├── Assets
+│   └── script
+│       ├── camera
+│       │   └── src
+│       │       └── camera.cs
+│       ├── control
+│       │   └── player
+│       │       └── playerControl.cs
+│       ├── metastore
+│       └── trigger
+└── README.md
+
 ```
