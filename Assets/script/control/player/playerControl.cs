@@ -11,7 +11,6 @@ public class playerControl : MonoBehaviour {
 	}
 
 	void Control() {
-		Debug.Log("hi");
         float translation = Input.GetAxis("Vertical") * speed * Time.deltaTime;
         float rotation = Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime;
 
