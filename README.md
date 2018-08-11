@@ -3,16 +3,16 @@
 ## Tree
 ```
 .
-.
 ├── Assets
 │   └── script
 │       ├── camera
 │       │   └── src
 │       │       └── camera.cs
 │       ├── control
-│       │   └── player
-│       │       ├── make.cs
-│       │       └── playerControl.cs
+│       │   ├── player
+│       │   │   ├── make.cs
+│       │   │   └── playerControl.cs
+│       │   └── scene.cs
 │       ├── info
 │       │   └── info.cs
 │       ├── Item
@@ -29,6 +29,7 @@
 │               ├── chopTree.cs
 │               └── treectrl.cs
 └── README.md
+
 ```
 - node.cs
 - ObjItem.cs
