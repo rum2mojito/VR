@@ -3,28 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class playerControl : MonoBehaviour {
-	public float speed = 10f;
-	public float rotationSpeed = 100f;
+    public float speed = 10f;
+    public float rotationSpeed = 100f;
 
-	private Transform tr;
+    private Transform tr;
     private pack pack;
-    private GameObject item;
+    private Rigidbody item;
+    private bool isOnHands = false;
 
     void Start() {
-    	tr = GetComponent<Transform>();
+        tr = GetComponent<Transform>();
         pack = GetComponent<pack>();
-        item = new GameObject();
-        item.SetActive(false);
+        // item = new GameObject();
+        // item.SetActive(false);
     }
 
-	void Update() {
-		Control();
-		getPack();
-        onHands();
-	}
+    void Update() {
+        Control();
+        getPack();
+        if (isOnHands) {
+            onHands();
+        }
+        throwing();
+    }
 
-	void getPack() {
-		if (Input.GetKeyDown("u")) {
+    void getPack() {
+        if (Input.GetKeyDown("u")) {
             pack.showPack();
         }
 
@@ -36,8 +40,8 @@ public class playerControl : MonoBehaviour {
             ObjItem obj = (ObjItem)gameObj.GetComponent<ObjItem>();
             // if (Input.GetKeyDown("e"))
             // {
-            // 	Debug.Log("Press 'E'");
-            // 	item = gameObj;
+            //  Debug.Log("Press 'E'");
+            //  item = gameObj;
             //     gameObj.SetActive(false);
             //     Destroy(gameObj);
             //     item.SetActive(true);
@@ -48,26 +52,41 @@ public class playerControl : MonoBehaviour {
                 Debug.Log(obj.objName);
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                	Debug.Log("E'");
-                    item = gameObj;
+                    Debug.Log("keycode E");
+                    item = gameObj.GetComponent<Rigidbody>();
+                    // item = gameObj;
+                    isOnHands = true;
                     // gameObj.SetActive(false);
                     // Destroy(gameObj);
                 }
             }
         }
-	}
+    }
 
-	void Control() {
+    void Control() {
         float translation = Input.GetAxis("Vertical") * speed * Time.deltaTime;
         float rotation = Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime;
 
         transform.Translate(0, 0, translation);
         transform.Rotate(0, rotation, 0);
-	}
+    }
 
 
     void onHands() {
         item.transform.position = this.transform.position + new Vector3(1f,0.5f,1f);
         Debug.Log ("Hit:" + item.name + " tag:" + item.tag);
+    }
+
+    void throwing() {
+        if (Input.GetKeyDown("g") && isOnHands) {
+            if (true) {
+                item.GetComponent<Rigidbody>().isKinematic = false;
+                transform.DetachChildren();
+                Vector3 camDirct = transform.TransformDirection(0, 0, 100);
+                item.velocity =  new Vector3(0, 0, 10);
+                // item.AddForce(camDirct, ForceMode.Force);
+            }
+            isOnHands = false;
+        }
     }
 }
