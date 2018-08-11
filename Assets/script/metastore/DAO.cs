@@ -13,14 +13,16 @@ class DBHelper
 	static SqlConnection conn;
 	static string conStr="server=.;database=mytest;integrated security=SSPI";
 	
+	public static DataTable Query(String sql,string tableName)
+	{
+		conn=new SqlConnection(conStr);
+		conn.open();
+		SqlDataAdapter adapter=new SqlDataAdapter(sql,conn);
+		DataSet ds=new DataSet();
+		DataTable db=new DataTable();
+		adapter.Fill(ds,tableName);
+		return ds.Table[0];
+	}
+	
 } 
-public static DataTable Query(String sql,string tableName)
-{
-	conn=new SqlConnection(conStr);
-	conn.open();
-	SqlDataAdapter adapter=new SqlDataAdapter(sql,conn);
-	DataSet ds=new DataSet();
-	DataTable db=new DataTable();
-	adapter.Fill(ds,tableName);
-	return ds.Table[0];
-}
+
