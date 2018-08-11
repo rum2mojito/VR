@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class node : MonoBehaviour {
 
-    public string objId;
+    public int objId;
     public string objName;
     public string note;
 
@@ -17,18 +17,22 @@ public class node : MonoBehaviour {
         isChecked = false;
     }
 
-	// Update is called once per frame
-	void Update () {
-		if (flag) {
-	        if (isChecked) {
-	            GetComponent<MeshRenderer>().material.color = Color.green;
-	        }
-	        isChecked = false;
-	    }
+    // Update is called once per frame
+    void Update () {
+        if (flag) {
+            if (isChecked) {
+                GetComponent<MeshRenderer>().material.color = Color.green;
+            }
+            isChecked = false;
+        }
     }
 
     public void setRed () {
-    	GetComponent<MeshRenderer>().material.color = Color.red;
-    	flag = false;
+        GetComponent<MeshRenderer>().material.color = Color.red;
+        flag = false;
+    }
+
+    public int getID() {
+        return objId;
     }
 }

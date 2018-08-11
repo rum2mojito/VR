@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class nodeEntity {
 
-    private string objId;
+    private int objId;
     private string objName;
     private string note;
     private bool isChecked;
@@ -19,7 +19,7 @@ public class nodeEntity {
         return itemEntity;
     }
 
-    public string ObjId {
+    public int ObjId {
         get {
             return objId;
         }
