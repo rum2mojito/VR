@@ -6,7 +6,6 @@ public class eventTrigger : MonoBehaviour {
     private GameObject last;
     private Transform tr;
     private nodeEntity ne;
-    private flashLine fl;
     private Rigidbody item;
     private List<node> touched = new List<node>();
     private List<Rigidbody> touchedRigid = new List<Rigidbody>();
@@ -18,7 +17,6 @@ public class eventTrigger : MonoBehaviour {
     void Start () {
         tr = GetComponent<Transform>();
         ne = GetComponent<nodeEntity>();
-        fl = GetComponent<flashLine>();
     }
 
     void Awake() {
