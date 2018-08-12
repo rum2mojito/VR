@@ -9,9 +9,9 @@ public class ball : MonoBehaviour {
 
 	// private bool checkedFlag = false;
 
-	void Awake () {
-		checkedFlag = false;
-	}
+	// void Awake () {
+	// 	checkedFlag = false;
+	// }
 
 	// Use this for initialization
 	void Start () {
