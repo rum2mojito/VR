@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,7 +22,7 @@ public class node : MonoBehaviour {
     void Update () {
         if (flag) {
             if (isChecked) {
-                GetComponent<MeshRenderer>().material.color = Color.green;
+                // GetComponent<MeshRenderer>().material.color = Color.green;
             }
             isChecked = false;
         }
@@ -54,4 +54,5 @@ public class node : MonoBehaviour {
         Debug.Log("Delete");
         Destroy(line);
     }
+
 }
